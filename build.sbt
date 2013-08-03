@@ -12,7 +12,11 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 
 libraryDependencies += "com.azaptree" %% "azaptree-commons" % "0.0.1-SNAPSHOT"
 
+libraryDependencies += "org.scalatest" %% "scalatest" % "1.9.1" % "test"
+
 libraryDependencies +=  "org.elasticsearch" % "elasticsearch" % "0.90.2"
+
+libraryDependencies += compilerPlugin("org.scala-lang.plugins" % "continuations" % "2.10.2")
 
 scalacOptions ++= Seq("-P:continuations:enable",
 					  "-optimise",

@@ -10,7 +10,7 @@ autoCompilerPlugins := true
 
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-libraryDependencies += "com.azaptree" %% "azaptree-commons" % "0.0.1-SNAPSHOT"
+libraryDependencies += "com.azaptree" %% "azaptree-application" % "0.0.1-SNAPSHOT"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "1.9.1" % "test"
 

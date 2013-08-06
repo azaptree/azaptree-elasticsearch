@@ -25,7 +25,17 @@ case class ElasticNodeLifeCycle(
     client.foreach(nb.client(_))
     data.foreach(nb.data(_))
     settings.foreach(nb.settings(_))
-    comp.copy[ComponentConstructed, Node](componentObject = Some(nb.node()))
+    comp.copy[ComponentConstructed, Node](componentObject = Some(nb.build()))
+  }
+
+  override protected def start(comp: Component[ComponentInitialized, Node]): Component[ComponentStarted, Node] = {
+    val startedNode = for {
+      node <- comp.componentObject
+    } yield {
+      node.start()
+    }
+
+    comp.copy[ComponentStarted, Node](componentObject = startedNode)
   }
 
   override protected def stop(comp: Component[ComponentStarted, Node]): Component[ComponentStopped, Node] = {
